@@ -8,13 +8,13 @@ composer require flashytime/container
 ```
 
 ### Usage
-Create a container
+##### Create a container
 ```php
 use Flashytime\Container\Container;
 $container = new Container();
 ```
 
-Register a closure
+##### Register a closure
 ```php
 $this->container->set('hello', function () {
     return 'Hello World!';
@@ -31,7 +31,7 @@ $this->container->set('mocha', function ($container) {
 echo $this->container->get('mocha'); //Hello Mocha!
 ```
 
-Register a instance or class
+##### Register a instance or class
 ```php
 $this->container->set('foo', function () {
     return new Foo();
@@ -49,17 +49,17 @@ or
 ```php
 $this->container->set('foo', Flashytime\Container\Tests\Foo::class);
 ```
-Get the entry
+##### Get the entry
 ```php
 $this->container->get('foo');
 ```
 
-Register a singleton
+##### Register a singleton
 ```php
 $this->container->setSingleton('foo', Flashytime\Container\Tests\Foo::class);
 ```
 
-Dependency Injection
+##### Dependency Injection
 ```php
 interface FooInterface
 {
@@ -120,6 +120,8 @@ $bar = $this->container->get('bar');
 var_dump($bar instanceof Bar); //true
 var_dump($bar->getFoo() instanceof Foo); //true
 ```
+
+see [tests](https://github.com/flashytime/container/blob/master/tests/ContainerTest.php) to get more usages.
 
 ### License
 [MIT](https://opensource.org/licenses/MIT)
