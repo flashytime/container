@@ -57,6 +57,9 @@ $this->container->get('foo');
 ##### Register a singleton
 ```php
 $this->container->setSingleton('foo', Flashytime\Container\Tests\Foo::class);
+$first = $this->container->get('foo');
+$second = $this->container->get('foo');
+var_dump($first === $second); //true
 ```
 
 ##### Dependency Injection
